@@ -14,6 +14,9 @@ class PlayGroundController extends Controller
 {
     public function import_users_to_db(Request $request)
     {
+        $request->validate([
+            'excel_file' => 'required'
+        ]);
         Excel::import(new UsersImport(), $request->file('excel_file')->getRealPath());
         return back()->with('status', 'All Data Has Been Imported Successfully!');
 
