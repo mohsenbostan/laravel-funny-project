@@ -23,10 +23,4 @@ class PlayGroundController extends Controller
     {
         return Excel::download(new UsersExport(), 'Users.xlsx');
     }
-
-    public function test_2fa()
-    {
-        $code = new TwoFactorAuth();
-        return $code->generateCode(User::find(auth()->user()->id));
-    }
 }

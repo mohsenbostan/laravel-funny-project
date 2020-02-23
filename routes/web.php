@@ -13,7 +13,6 @@
 
 Route::post('/import_users_to_db', 'PlayGroundController@import_users_to_db')->name('import_users_to_db');
 Route::post('/export_users_to_excel', 'PlayGroundController@export_users_to_excel')->name('export_users_to_excel');
-Route::get('/test_2fa', 'PlayGroundController@test_2fa')->name('test_2fa');
 
 Auth::routes();
 
