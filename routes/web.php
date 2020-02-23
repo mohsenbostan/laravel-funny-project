@@ -11,12 +11,10 @@
 |
 */
 
-Route::post('/import_users_to_db','PlayGroundController@import_users_to_db')->name('import_users_to_db');
-Route::post('/export_users_to_excel','PlayGroundController@export_users_to_excel')->name('export_users_to_excel');
+Route::post('/import_users_to_db', 'PlayGroundController@import_users_to_db')->name('import_users_to_db');
+Route::post('/export_users_to_excel', 'PlayGroundController@export_users_to_excel')->name('export_users_to_excel');
 
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/home', function () {
-    return redirect('/');
-});
+Route::get('/home', 'HomeController@redirect_to_home');
