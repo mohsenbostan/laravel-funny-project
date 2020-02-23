@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
+use App\TwoFactorAuth;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,5 +22,11 @@ class PlayGroundController extends Controller
     public function export_users_to_excel()
     {
         return Excel::download(new UsersExport(), 'Users.xlsx');
+    }
+
+    public function test_2fa()
+    {
+        $code = new TwoFactorAuth();
+        return $code->generateCode(User::find(auth()->user()->id));
     }
 }
